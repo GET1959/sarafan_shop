@@ -104,3 +104,9 @@ class Gallery(models.Model):
         related_name="images",
         verbose_name="Продукт"
     )
+
+
+class CartItem(models.Model):
+    product_name = models.CharField(max_length=200)
+    product_price = models.FloatField()
+    product_quantity = models.PositiveIntegerField()

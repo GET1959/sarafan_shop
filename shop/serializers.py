@@ -1,8 +1,8 @@
 
-from rest_framework.fields import SerializerMethodField
+from rest_framework.fields import SerializerMethodField, CharField, FloatField, IntegerField
 from rest_framework.serializers import ModelSerializer
 
-from shop.models import Category, Subcategory, Product, Gallery
+from shop.models import Category, Subcategory, Product, Gallery, CartItem
 
 
 class CategorySerializer(ModelSerializer):
@@ -37,3 +37,19 @@ class ProductSerializer(ModelSerializer):
     class Meta:
         model = Product
         fields = ("id", "title", "category", "subcategory", "slug", "price", "gallery")
+
+
+class CartItemSerializer(ModelSerializer):
+    product_name = CharField(max_length=200)
+    product_price = FloatField()
+    product_quantity = IntegerField(required=False, default=1)
+    total_price = SerializerMethodField()
+
+    class Meta:
+        model = CartItem
+        fields = '__all__'
+
+    def get_total_price(self, instance):
+        if instance.product_quantity:
+            return instance.product_price * instance.product_quantity
+        return 0
