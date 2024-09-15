@@ -1,0 +1,35 @@
+[tool.poetry]
+name = "sarafan-shop"
+version = "0.1.0"
+description = ""
+authors = ["gennady <topchiev@mail.ru>"]
+readme = "README.md"
+
+[tool.poetry.dependencies]
+python = "^3.12"
+django = "^5.1.1"
+python-dotenv = "^1.0.1"
+psycopg2-binary = "^2.9.9"
+pillow = "^10.4.0"
+djangorestframework = "^3.15.2"
+drf-spectacular = "^0.27.2"
+djangorestframework-simplejwt = "^5.3.1"
+
+
+[tool.poetry.group.lint.dependencies]
+flake8 = "^7.1.1"
+isort = "^5.13.2"
+black = "^24.8.0"
+
+[tool.black]
+line-length = 120
+extend-exclude = """
+    (
+    .*migrations/
+    | .*tests/
+    )
+"""
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"

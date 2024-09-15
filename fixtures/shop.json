@@ -1,0 +1,416 @@
+[
+  {
+    "model": "shop.category",
+    "pk": 1,
+    "fields": {
+      "title": "cat_1",
+      "slug": "cat-1",
+      "image": ""
+    }
+  },
+  {
+    "model": "shop.category",
+    "pk": 2,
+    "fields": {
+      "title": "cat_2",
+      "slug": "cat-2",
+      "image": ""
+    }
+  },
+  {
+    "model": "shop.category",
+    "pk": 3,
+    "fields": {
+      "title": "cat_3",
+      "slug": "cat-3",
+      "image": ""
+    }
+  },
+  {
+    "model": "shop.subcategory",
+    "pk": 1,
+    "fields": {
+      "title": "subcat_1_1",
+      "category": 1,
+      "slug": "subcat-1-1",
+      "image": ""
+    }
+  },
+  {
+    "model": "shop.subcategory",
+    "pk": 2,
+    "fields": {
+      "title": "subcat_1_2",
+      "category": 1,
+      "slug": "subcat-1-2",
+      "image": ""
+    }
+  },
+  {
+    "model": "shop.subcategory",
+    "pk": 3,
+    "fields": {
+      "title": "subcat_1_3",
+      "category": 1,
+      "slug": "subcat-1-3",
+      "image": ""
+    }
+  },
+  {
+    "model": "shop.subcategory",
+    "pk": 4,
+    "fields": {
+      "title": "subcat_2_1",
+      "category": 2,
+      "slug": "subcat-2-1",
+      "image": ""
+    }
+  },
+  {
+    "model": "shop.subcategory",
+    "pk": 5,
+    "fields": {
+      "title": "subcat_2_2",
+      "category": 2,
+      "slug": "subcat-2-2",
+      "image": ""
+    }
+  },
+  {
+    "model": "shop.subcategory",
+    "pk": 6,
+    "fields": {
+      "title": "subcat_2_3",
+      "category": 2,
+      "slug": "subcat-2-3",
+      "image": ""
+    }
+  },
+  {
+    "model": "shop.subcategory",
+    "pk": 7,
+    "fields": {
+      "title": "subcat_3_1",
+      "category": 3,
+      "slug": "subcat-3-1",
+      "image": ""
+    }
+  },
+  {
+    "model": "shop.subcategory",
+    "pk": 8,
+    "fields": {
+      "title": "subcat_3_2",
+      "category": 2,
+      "slug": "subcat-3-2",
+      "image": ""
+    }
+  },
+  {
+    "model": "shop.subcategory",
+    "pk": 9,
+    "fields": {
+      "title": "subcat_3_3",
+      "category": 3,
+      "slug": "subcat-3-3",
+      "image": ""
+    }
+  },
+  {
+    "model": "shop.product",
+    "pk": 1,
+    "fields": {
+      "title": "prod_01",
+      "category": 1,
+      "subcategory": 1,
+      "slug": "prod-01",
+      "price": "15.00"
+    }
+  },
+  {
+    "model": "shop.product",
+    "pk": 2,
+    "fields": {
+      "title": "prod_02",
+      "category": 1,
+      "subcategory": 1,
+      "slug": "prod-02",
+      "price": "20.00"
+    }
+  },
+  {
+    "model": "shop.product",
+    "pk": 3,
+    "fields": {
+      "title": "prod_03",
+      "category": 1,
+      "subcategory": 1,
+      "slug": "prod-03",
+      "price": "10.00"
+    }
+  },
+  {
+    "model": "shop.product",
+    "pk": 4,
+    "fields": {
+      "title": "prod_04",
+      "category": 1,
+      "subcategory": 2,
+      "slug": "prod-04",
+      "price": "30.00"
+    }
+  },
+  {
+    "model": "shop.product",
+    "pk": 5,
+    "fields": {
+      "title": "prod_05",
+      "category": 1,
+      "subcategory": 2,
+      "slug": "prod-05",
+      "price": "25.00"
+    }
+  },
+  {
+    "model": "shop.product",
+    "pk": 6,
+    "fields": {
+      "title": "prod_06",
+      "category": 1,
+      "subcategory": 2,
+      "slug": "prod-06",
+      "price": "10.00"
+    }
+  },
+  {
+    "model": "shop.product",
+    "pk": 7,
+    "fields": {
+      "title": "prod_07",
+      "category": 1,
+      "subcategory": 3,
+      "slug": "prod-07",
+      "price": "35.00"
+    }
+  },
+  {
+    "model": "shop.product",
+    "pk": 8,
+    "fields": {
+      "title": "prod_08",
+      "category": 1,
+      "subcategory": 3,
+      "slug": "prod-08",
+      "price": "0.00"
+    }
+  },
+  {
+    "model": "shop.product",
+    "pk": 9,
+    "fields": {
+      "title": "prod_09",
+      "category": 1,
+      "subcategory": 3,
+      "slug": "prod-09",
+      "price": "45.00"
+    }
+  },
+  {
+    "model": "shop.product",
+    "pk": 10,
+    "fields": {
+      "title": "prod_10",
+      "category": 2,
+      "subcategory": 4,
+      "slug": "prod-10",
+      "price": "15.00"
+    }
+  },
+  {
+    "model": "shop.product",
+    "pk": 11,
+    "fields": {
+      "title": "prod_11",
+      "category": 2,
+      "subcategory": 4,
+      "slug": "prod-11",
+      "price": "35.00"
+    }
+  },
+  {
+    "model": "shop.product",
+    "pk": 12,
+    "fields": {
+      "title": "prod_12",
+      "category": 2,
+      "subcategory": 4,
+      "slug": "prod-12",
+      "price": "5.00"
+    }
+  },
+  {
+    "model": "shop.product",
+    "pk": 13,
+    "fields": {
+      "title": "prod_13",
+      "category": 2,
+      "subcategory": 5,
+      "slug": "prod-13",
+      "price": "20.00"
+    }
+  },
+  {
+    "model": "shop.product",
+    "pk": 14,
+    "fields": {
+      "title": "prod_14",
+      "category": 2,
+      "subcategory": 5,
+      "slug": "prod-14",
+      "price": "20.00"
+    }
+  },
+  {
+    "model": "shop.product",
+    "pk": 15,
+    "fields": {
+      "title": "prod_15",
+      "category": 2,
+      "subcategory": 5,
+      "slug": "prod-15",
+      "price": "15.00"
+    }
+  },
+  {
+    "model": "shop.product",
+    "pk": 16,
+    "fields": {
+      "title": "prod_16",
+      "category": 2,
+      "subcategory": 6,
+      "slug": "prod-16",
+      "price": "0.00"
+    }
+  },
+  {
+    "model": "shop.product",
+    "pk": 17,
+    "fields": {
+      "title": "prod_17",
+      "category": 2,
+      "subcategory": 6,
+      "slug": "prod-17",
+      "price": "25.00"
+    }
+  },
+  {
+    "model": "shop.product",
+    "pk": 18,
+    "fields": {
+      "title": "prod_18",
+      "category": 2,
+      "subcategory": 6,
+      "slug": "prod-18",
+      "price": "40.00"
+    }
+  },
+  {
+    "model": "shop.product",
+    "pk": 19,
+    "fields": {
+      "title": "prod_19",
+      "category": 3,
+      "subcategory": 7,
+      "slug": "prod-19",
+      "price": "20.00"
+    }
+  },
+  {
+    "model": "shop.product",
+    "pk": 20,
+    "fields": {
+      "title": "prod_20",
+      "category": 3,
+      "subcategory": 7,
+      "slug": "prod-20",
+      "price": "20.00"
+    }
+  },
+  {
+    "model": "shop.product",
+    "pk": 21,
+    "fields": {
+      "title": "prod_21",
+      "category": 3,
+      "subcategory": 7,
+      "slug": "prod-21",
+      "price": "25.00"
+    }
+  },
+  {
+    "model": "shop.product",
+    "pk": 22,
+    "fields": {
+      "title": "prod_22",
+      "category": 3,
+      "subcategory": 8,
+      "slug": "prod-22",
+      "price": "30.00"
+    }
+  },
+  {
+    "model": "shop.product",
+    "pk": 23,
+    "fields": {
+      "title": "prod_23",
+      "category": 3,
+      "subcategory": 8,
+      "slug": "prod-23",
+      "price": "50.00"
+    }
+  },
+  {
+    "model": "shop.product",
+    "pk": 24,
+    "fields": {
+      "title": "prod_24",
+      "category": 3,
+      "subcategory": 8,
+      "slug": "prod-24",
+      "price": "45.00"
+    }
+  },
+  {
+    "model": "shop.product",
+    "pk": 25,
+    "fields": {
+      "title": "prod_25",
+      "category": 3,
+      "subcategory": 9,
+      "slug": "prod-25",
+      "price": "25.00"
+    }
+  },
+  {
+    "model": "shop.product",
+    "pk": 26,
+    "fields": {
+      "title": "prod_26",
+      "category": 3,
+      "subcategory": 9,
+      "slug": "prod-26",
+      "price": "30.00"
+    }
+  },
+  {
+    "model": "shop.product",
+    "pk": 27,
+    "fields": {
+      "title": "prod_27",
+      "category": 3,
+      "subcategory": 9,
+      "slug": "prod-27",
+      "price": "55.00"
+    }
+  }
+]
