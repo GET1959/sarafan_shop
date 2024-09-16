@@ -1,24 +1,15 @@
 from django.contrib import admin
 
-from shop.models import Gallery, Product, Category, Subcategory
+from shop.models import Gallery, Product, Category  # , Subcategory
 
 
 @admin.register(Category)
-class SectionAdmin(admin.ModelAdmin):
+class CategoryAdmin(admin.ModelAdmin):
     list_display = (
         "title",
         "slug",
-        "image"
-    )
-
-
-@admin.register(Subcategory)
-class MaterialAdmin(admin.ModelAdmin):
-    list_display = (
-        "title",
-        "category",
-        "slug",
-        "image"
+        "image",
+        "parent_category"
     )
 
 
@@ -30,3 +21,8 @@ class GalleryInline(admin.TabularInline):
 @admin.register(Product)
 class ProductAdmin(admin.ModelAdmin):
     inlines = [GalleryInline,]
+    list_display = (
+        "title",
+        "slug",
+        "category"
+    )

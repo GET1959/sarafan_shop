@@ -5,9 +5,11 @@ from rest_framework.views import APIView
 from rest_framework.viewsets import ModelViewSet
 from rest_framework.generics import ListAPIView, RetrieveAPIView
 
-from shop.models import Category, Product, CartItem
+from shop.models import Category, Product, BasketItem, Basket
 from shop.paginators import CustomPagination
-from shop.serializers import CategorySerializer, ProductSerializer, CartItemSerializer
+from shop.permissions import IsOwner
+from shop.serializers import CategorySerializer, ProductSerializer, BasketItemSerializer, \
+    BasketSerializer
 
 
 class CategoryViewSet(ModelViewSet):
@@ -27,9 +29,22 @@ class ProductRetrieveAPIView(RetrieveAPIView):
     serializer_class = ProductSerializer
 
 
-class CartItemViews(APIView):
+class BasketViewSet(ModelViewSet):
+    queryset = Basket.objects.all()
+    serializer_class = BasketSerializer
+    pagination_class = CustomPagination
+    permission_classes = (IsOwner,)
+
+    def get_queryset(self):
+        return Basket.objects.filter(user=self.request.user)
+
+    def perform_create(self, serializer):
+        serializer.save(user=self.request.user)
+
+
+class BasketItemViews(APIView):
     def post(self, request):
-        serializer = CartItemSerializer(data=request.data, many=True)
+        serializer = BasketItemSerializer(data=request.data, many=True)
         if serializer.is_valid():
             serializer.save()
             return Response(
@@ -44,17 +59,17 @@ class CartItemViews(APIView):
 
     def get(self, request, id=None):
         if id:
-            item = CartItem.objects.get(id=id)
-            serializer = CartItemSerializer(item)
+            item = BasketItem.objects.get(id=id)
+            serializer = BasketItemSerializer(item)
             return Response({"status": "success", "data": serializer.data}, status=status.HTTP_200_OK)
 
-        items = CartItem.objects.all()
-        serializer = CartItemSerializer(items, many=True)
+        items = BasketItem.objects.all()
+        serializer = BasketItemSerializer(items, many=True)
         return Response({"status": "success", "data": serializer.data}, status=status.HTTP_200_OK)
 
     def patch(self, request, id=None):
-        item = CartItem.objects.get(id=id)
-        serializer = CartItemSerializer(item, data=request.data, partial=True)
+        item = BasketItem.objects.get(id=id)
+        serializer = BasketItemSerializer(item, data=request.data, partial=True)
         if serializer.is_valid():
             serializer.save()
             return Response({"status": "success", "data": serializer.data})
@@ -62,6 +77,6 @@ class CartItemViews(APIView):
             return Response({"status": "error", "data": serializer.errors})
 
     def delete(self, request, id=None):
-        item = get_object_or_404(CartItem, id=id)
+        item = get_object_or_404(BasketItem, id=id)
         item.delete()
         return Response({"status": "success", "data": "Item Deleted"})
