@@ -55,16 +55,20 @@ class BasketItemSerializer(ModelSerializer):
 class BasketSerializer(ModelSerializer):
     user = serializers.HiddenField(default=CurrentUserDefault())
     product_item = SerializerMethodField()
-    basket_total_price = SerializerMethodField
+    basket_total_price = SerializerMethodField()
 
     class Meta:
         model = Basket
         fields = '__all__'
 
     def get_product_item(self, instance):
-        return [
-            (item.product.title, item.product.price, item.quantity) for item in BasketItem.objects.filter(basket=instance)
-        ]
+        return [{
+            "id": item.product.id,
+            "title": item.product.title,
+            "price": item.product.price,
+            "quantity": item.quantity,
+            "total_price": item.sum
+            } for item in BasketItem.objects.filter(basket=instance)]
 
     def get_basket_total_price(self, instance):
         return instance.sum

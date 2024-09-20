@@ -1,5 +1,6 @@
 from django.shortcuts import get_object_or_404
 from rest_framework import status
+from rest_framework.permissions import AllowAny
 from rest_framework.response import Response
 from rest_framework.views import APIView
 from rest_framework.viewsets import ModelViewSet
@@ -12,10 +13,22 @@ from shop.serializers import CategorySerializer, ProductSerializer, BasketItemSe
     BasketSerializer
 
 
-class CategoryViewSet(ModelViewSet):
+# class CategoryViewSet(ModelViewSet):
+#     queryset = Category.objects.all()
+#     serializer_class = CategorySerializer
+#     pagination_class = CustomPagination
+#     permission_classes = (AllowAny,)
+
+
+class CategoryListAPIView(ListAPIView):
     queryset = Category.objects.all()
     serializer_class = CategorySerializer
     pagination_class = CustomPagination
+
+
+class CategoryRetrieveAPIView(RetrieveAPIView):
+    queryset = Category.objects.all()
+    serializer_class = CategorySerializer
 
 
 class ProductListAPIView(ListAPIView):
@@ -44,6 +57,9 @@ class BasketViewSet(ModelViewSet):
 
 class BasketItemViews(APIView):
     def post(self, request):
+        bask, created = Basket.objects.get_or_create(user=self.request.user)
+        for elem in request.data:
+            elem["basket"] = bask.id
         serializer = BasketItemSerializer(data=request.data, many=True)
         if serializer.is_valid():
             serializer.save()
